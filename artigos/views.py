@@ -10,7 +10,7 @@ class ArtigoAPIView(views.APIView):
     serializer_class = ArtigoSerializer
     permission_classes = [permissions.AllowAny]
 
-    def get(self):
+    def get(self, request):
         data = news_api_request()
         serializer = self.serializer_class(data=data['articles'], many=True)
         if serializer.is_valid(raise_exception=True):
